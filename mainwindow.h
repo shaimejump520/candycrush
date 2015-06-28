@@ -1,0 +1,47 @@
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+#include<QPushButton>
+#include <QMainWindow>
+#include <QSignalMapper>
+#include <QTime>
+
+namespace Ui {
+class MainWindow;
+}
+
+class MainWindow : public QMainWindow
+{
+    Q_OBJECT
+
+
+public:
+    explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
+    QPushButton *p[10][10];
+    QSignalMapper *signalmapper;
+    int q[10][10];
+    int c[10][10];
+    int k[10][10];
+    int t;
+    int score,step;
+    int ii,jj,mm,nn;
+    void picture();
+    void remove();
+    void click();
+    void drop();
+    void special(int,int);
+    void star(int, int,int,int);
+    void delay();
+
+
+public slots:
+    void move(int a);
+
+private slots:
+    void on_Score_overflow();
+
+private:
+    Ui::MainWindow *ui;
+};
+
+#endif // MAINWINDOW_H
